@@ -117,7 +117,7 @@ function playbackTake(take) {
     id("video").muted = false;
     id("video").controls = true;
     id("download").href = takeList[take - 1];
-    id("delete").style.display = "initial";
+    id("delete").style.display = "flex";
     currentVideo = (take).toString();
 }
 
@@ -150,11 +150,11 @@ function cancelLongPress() {
 
 function settings() {
     if (id("settingsPage").style.display === "none") {
-        id("settingsPage").style.display = "grid";
+        id("settingsPage").style.display = "flex";
         id("recordingPage").style.display = "none";
     } else {
         id("settingsPage").style.display = "none";
-        id("recordingPage").style.display = "grid";
+        id("recordingPage").style.display = "flex";
     }
 }
 
