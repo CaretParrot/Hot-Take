@@ -6,19 +6,19 @@ let longPress = false;
 let longPressTimeout;
 let countdownTimeout;
 
-if (localStorage.getItem("gainControl") == null) {
+if (localStorage.getItem("gainControl") === null) {
     localStorage.setItem("gainControl", "true");
 }
 
-if (localStorage.getItem("originalSound") == null) {
+if (localStorage.getItem("originalSound") === null) {
     localStorage.setItem("originalSound", "true");
 }
 
-if (localStorage.getItem("countdown") == null) {
+if (localStorage.getItem("countdown") === null) {
     localStorage.setItem("countdown", "5");
 }
 
-if (localStorage.getItem("volumeCorrection") == "true") {
+if (localStorage.getItem("volumeCorrection") === "true") {
     id("volumeCorrection").style.backgroundColor = "White";
     id("volumeCorrection").style.color = "Black";
 } else {
@@ -26,7 +26,7 @@ if (localStorage.getItem("volumeCorrection") == "true") {
     id("volumeCorrection").style.color = "White";
 }
 
-if (localStorage.getItem("originalSound") == "true") {
+if (localStorage.getItem("originalSound") === "true") {
     id("originalSound").style.backgroundColor = "White";
     id("originalSound").style.color = "Black";
 } else {
@@ -68,7 +68,7 @@ window.onload = function () {
                 let counter = setInterval(function () {
                     id("start").innerHTML--;
 
-                    if (id("start").innerHTML == 0) {
+                    if (id("start").innerHTML === 0) {
                         id("start").innerHTML = "Start";
                         clearInterval(counter);
                     }
@@ -129,7 +129,7 @@ function deleteVideo() {
     id("video").muted = true;
     id("video").controls = false;
 
-    if (takeList.length == 0) {
+    if (takeList.length === 0) {
         id("delete").style.display = "none";
     }
 }
@@ -149,7 +149,7 @@ function cancelLongPress() {
 }
 
 function settings() {
-    if (id("settingsPage").style.display == "none") {
+    if (id("settingsPage").style.display === "none") {
         id("settingsPage").style.display = "grid";
         id("recordingPage").style.display = "none";
     } else {
@@ -159,7 +159,7 @@ function settings() {
 }
 
 function toggleOriginalSound() {
-    if (localStorage.getItem("originalSound") == "true") {
+    if (localStorage.getItem("originalSound") === "true") {
         id("originalSound").style.backgroundColor = "hsl(0, 0%, 12.5%)";
         id("originalSound").style.color = "White";
         localStorage.setItem("originalSound", "false");
@@ -171,7 +171,7 @@ function toggleOriginalSound() {
 }
 
 function toggleVolumeCorrection() {
-    if (localStorage.getItem("volumeCorrection") == "true") {
+    if (localStorage.getItem("volumeCorrection") === "true") {
         id("volumeCorrection").style.backgroundColor = "hsl(0, 0%, 12.5%)";
         id("volumeCorrection").style.color = "White";
         localStorage.setItem("volumeCorrection", "false");
