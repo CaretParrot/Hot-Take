@@ -1,0 +1,24 @@
+{
+    "name": "Hot Take",
+    "short_name": "Hot Take",
+    "start_url": "/Hot-Take",
+    "icons": [
+        {
+            "src": "https://caretparrot.github.io/My-Libraries/Profile%20Picture.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "maskable any"
+        },
+        {
+            "src": "https://caretparrot.github.io/My-Libraries/Profile%20Picture.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "maskable any"
+        }
+    ],
+    "theme_color": "#000000",
+    "background_color": "#000000",
+    "display": "fullscreen",
+    "orientation": "any",
+    "prefer_related_applications": true
+}
