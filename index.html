@@ -48,10 +48,10 @@
 
     <body>
         <div id="recordingPage" class="full-width" style="background-color: transparent;">
-            <video muted id="video" autoplay>
+            <video muted id="video" style="background-color: hsl(0, 10%, 10%);" muted autoplay>
                 <source id="source" src="">
             </video>
-            <div id="toolbar" class="extra-bottom-margin full-width" style="padding: 0;">
+            <div id="toolbar" class="extra-bottom-margin full-width" style="padding: 0; background-color: hsl(0, 10%, 10%);">
                 <button id="start">Start</button>
                 <button id="stop" disabled>Stop</button>
                 <button onclick="settings()" id="settings">Settings</button>
@@ -61,7 +61,7 @@
             <div class="full-width" id="takes" style="float: right; padding: 0;"></div>
         </div>
         <div id="settingsPage" class="extra-bottom-margin full-width full-height"
-            style="display: none; background-color: transparent;">
+            style="display: none; background-color: hsl(0, 10%, 10%);">
             <button style="" onclick="settings()">Return</button>
             <input id="countdown" style="text-align: center; font-weight: bold;" value="5" placeholder="Countdown"
                 min="0" type="number" />
