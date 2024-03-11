@@ -42,6 +42,10 @@
                 flex-flow: column wrap;
                 justify-content: center;
             }
+
+            body {
+                flex-flow: column wrap;
+            }
         </style>
         <link rel="stylesheet" href="https://caretparrot.github.io/My-Libraries/dark.css">
         <link rel="stylesheet" href="https://caretparrot.github.io/My-Libraries/gpl.js">
@@ -56,7 +60,8 @@
             <video muted id="video" style="background-color: hsl(0, 0%, 10%);" muted autoplay>
                 <source id="source" src="">
             </video>
-            <div id="toolbar" class="extra-bottom-margin full-width" style="padding: 0; background-color: hsl(0, 0%, 10%);">
+            <div id="toolbar" class="extra-bottom-margin full-width"
+                style="padding: 0; background-color: hsl(0, 0%, 10%);">
                 <button id="start">Start</button>
                 <button id="stop" disabled>Stop</button>
                 <button onclick="settings()" id="settings">Settings</button>
