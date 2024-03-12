@@ -20,7 +20,7 @@
 
             @keyframes recording {
                 0% {
-                    background-color: var(-xdark-gray);
+                    background-color: var(--gray-20);
                 }
 
                 50% {
@@ -28,7 +28,7 @@
                 }
 
                 100% {
-                    background-color: var(-xdark-gray);
+                    background-color: var(--gray-20);
                 }
             }
 
@@ -61,21 +61,21 @@
 
     <body>
         <div id="recordingPage" style="background-color: transparent;">
-            <video muted id="video" style="background-color: hsl(0, 0%, 10%); max-width: calc(100% - 2vmin);" muted autoplay>
+            <video muted id="video" style="background-color: --gray-10; max-width: calc(100% - 2vmin);" muted autoplay>
                 <source id="source" src="">
             </video>
             <div id="toolbar" class="extra-bottom-margin"
-                style="padding: 0; background-color: hsl(0, 0%, 10%);">
+                style="padding: 0; background-color: --gray-10;">
                 <button id="start">Start</button>
                 <button id="stop" disabled>Stop</button>
                 <button onclick="settings()" id="settings">Settings</button>
                 <a id="download" download="audition.webm" style="display: none; text-align: center;">Download</a>
                 <button id="delete" onclick="deleteVideo()" style="display: none; text-align: center;">Delete</button>
             </div>
-            <div id="takes" style="float: right; padding: 0; background-color: hsl(0, 0%, 10%);"></div>
+            <div id="takes" style="float: right; padding: 0; background-color: --gray-10;"></div>
         </div>
         <div id="settingsPage" class="extra-bottom-margin full-height"
-            style="display: none; background-color: hsl(0, 0%, 10%);">
+            style="display: none; background-color: --gray-10;">
             <button style="" onclick="settings()">Return</button>
             <input id="countdown" style="text-align: center; font-weight: bold;" value="5" placeholder="Countdown"
                 min="0" type="number" />
