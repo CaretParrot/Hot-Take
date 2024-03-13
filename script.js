@@ -118,7 +118,7 @@ function playbackTake(take) {
 
 function deleteVideo() {
     takeList.splice(currentVideo - 1, 1);
-    idTree[`${currentVideo}`].remove();
+    id(currentVideo).remove();
     idTree.source.src = undefined;
     idTree.video.muted = true;
     idTree.video.controls = false;
