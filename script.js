@@ -49,6 +49,7 @@ window.onload = function () {
             echoCancellation: !JSON.parse(localStorage.getItem("originalSound")),
             noiseSuppression: !JSON.parse(localStorage.getItem("originalSound"))
         }
+        
     }).then(stream => {
         idTree.video.srcObject = stream;
 
@@ -104,8 +105,6 @@ window.onload = function () {
                 idTree.stop.disabled = true;
                 parts = [];
             }
-
-            
 
             idTree.takes.innerHTML += `<button id="${counter}" class="element" onmouseup="cancelLongPress()" onmousedown="startLongPress()" ontouchstart="startLongPress()" ontouchend="cancelLongPress()" onclick="playbackTake(${counter})" style='width: 100%;'>#${counter}</button>`;
             counter++;
