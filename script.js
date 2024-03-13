@@ -96,7 +96,7 @@ window.onload = function () {
                 let url = URL.createObjectURL(event.data);
                 takeList.push(url);
 
-                idTree.takes.innerHTML += `<button id="${counter}" class="element" onmouseup="cancelLongPress()" onmousedown="startLongPress()" ontouchstart="startLongPress()" ontouchend="cancelLongPress()" onclick="playbackTake(${counter})" style='width: 100%;'>#${counter}</button>`;
+                idTree.takes.innerHTML += `<button id="${counter}" class="element" onmouseup="cancelLongPress()" onmousedown="startLongPress()" ontouchstart="startLongPress()" ontouchend="cancelLongPress()" onclick="playbackTake(${counter})">#${counter}</button>`;
                 counter++;
 
                 idTree.start.disabled = false;
@@ -154,7 +154,7 @@ function settings() {
 
 function toggleOriginalSound() {
     if (localStorage.getItem("originalSound") === "true") {
-        idTree.originalSound.style.backgroundColor = "hsl(0, 0%, 12.5%)";
+        idTree.originalSound.style.backgroundColor = "hsl(0, 0%, 20%)";
         idTree.originalSound.style.color = "White";
         localStorage.setItem("originalSound", "false");
     } else {
@@ -166,7 +166,7 @@ function toggleOriginalSound() {
 
 function toggleVolumeCorrection() {
     if (localStorage.getItem("volumeCorrection") === "true") {
-        idTree.volumeCorrection.style.backgroundColor = "hsl(0, 0%, 12.5%)";
+        idTree.volumeCorrection.style.backgroundColor = "hsl(0, 0%, 20%)";
         idTree.volumeCorrection.style.color = "White";
         localStorage.setItem("volumeCorrection", "false");
     } else {
