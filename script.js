@@ -63,7 +63,7 @@ window.onload = function () {
             mediaRecorder = new MediaRecorder(stream);
 
             if (idTree.countdown.value > 0) {
-                id.start.innerHTML = idTree.countdown.value;
+                idTree.start.innerHTML = idTree.countdown.value;
 
                 let counter = setInterval(function () {
                     idTree.start.innerHTML--;
