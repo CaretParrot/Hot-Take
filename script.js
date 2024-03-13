@@ -1,5 +1,4 @@
 let counter = 1;
-let parts = [];
 let takeList = [];
 let currentVideo;
 let longPress = false;
@@ -60,7 +59,6 @@ window.onload = function () {
             idTree.video.muted = true;
             idTree.video.controls = false;
             idTree.delete.style.display = "none";
-            parts = [];
             mediaRecorder = new MediaRecorder(stream);
 
             if (idTree.countdown.value > 0) {
@@ -103,15 +101,7 @@ window.onload = function () {
 
                 idTree.start.disabled = false;
                 idTree.stop.disabled = true;
-                parts = [];
             }
-
-            idTree.takes.innerHTML += `<button id="${counter}" class="element" onmouseup="cancelLongPress()" onmousedown="startLongPress()" ontouchstart="startLongPress()" ontouchend="cancelLongPress()" onclick="playbackTake(${counter})" style='width: 100%;'>#${counter}</button>`;
-            counter++;
-
-            idTree.start.disabled = false;
-            idTree.stop.disabled = true;
-            parts = [];
         }
     });
 }
