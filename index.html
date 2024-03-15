@@ -65,18 +65,18 @@
 
     <body>
         <div id="recordingPage" style="background-color: transparent; padding: 0;">
-            <video muted id="video" style="background-color: var(--gray-10); max-width: calc(100% - 2vmin);" muted autoplay>
+            <video muted id="video" style="width: 100%; background-color: var(--gray-10); max-width: calc(100% - 2vmin);" muted autoplay>
                 <source id="source" src="">
             </video>
             <div id="toolbar" class="extra-bottom-margin"
-                style="padding: 0; background-color: var(--gray-10); flex-flow: row wrap;">
+                style="width: 100%; padding: 0; background-color: var(--gray-10); flex-flow: row wrap;">
                 <button id="start">Start</button>
                 <button id="stop" disabled>Stop</button>
                 <button onclick="settings()" id="settings">Settings</button>
                 <a id="download" download="audition.webm" style="display: none; text-align: center;">Download</a>
                 <button id="delete" onclick="deleteVideo()" style="display: none; text-align: center;">Delete</button>
             </div>
-            <div id="takes" style="padding: 0; background-color: var(--gray-10); flex-flow: row wrap;"></div>
+            <div id="takes" style="width: 100%; padding: 0; background-color: var(--gray-10); flex-flow: row wrap;"></div>
         </div>
         <div id="settingsPage" class="extra-bottom-margin full-height"
             style="display: none; background-color: var(--gray-10);">
