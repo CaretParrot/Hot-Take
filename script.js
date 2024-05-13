@@ -134,6 +134,8 @@ function startLongPress() {
     longPressTimeout = setTimeout(function () {
         if (longPress && currentVideo !== undefined) {
             idTree.download.click();
+        } else if (currentVideo == undefined) {
+            alert("Please select a video before downloading.");
         }
     }, 1000);
 }
