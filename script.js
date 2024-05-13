@@ -53,6 +53,7 @@ window.onload = function () {
         idTree.video.srcObject = stream;
 
         idTree.start.onclick = function () {
+            currentVideo = undefined;
             idTree.download.href = undefined;
             idTree.video.srcObject = stream;
             idTree.source.src = undefined;
@@ -131,7 +132,7 @@ function deleteVideo() {
 function startLongPress() {
     longPress = true;
     longPressTimeout = setTimeout(function () {
-        if (longPress) {
+        if (longPress && currentVideo !== undefined) {
             idTree.download.click();
         }
     }, 1000);
