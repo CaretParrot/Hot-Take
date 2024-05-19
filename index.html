@@ -66,25 +66,25 @@
                 <source id="source" src="">
             </video>
             <div id="toolbar" class="extra-bottom-margin"
-                style="width: 100%; padding: 0; background-color: var(--gray-10); flex-flow: row wrap;">
+                style="padding: 0; background-color: var(--gray-10); flex-flow: row wrap;">
                 <button id="start">Start</button>
                 <button id="stop" disabled>Stop</button>
                 <button onclick="settings()" id="settings">Settings</button>
                 <a id="download" download="audition.webm" style="display: none; text-align: center;">Download</a>
                 <button id="delete" onclick="deleteVideo()" style="display: none; text-align: center;">Delete</button>
             </div>
-            <div id="takes" style="width: 100%; padding: 0; background-color: var(--gray-10); flex-flow: row wrap;"></div>
+            <div id="takes" style="padding: 0; background-color: var(--gray-10); flex-flow: row wrap;"></div>
         </div>
         <div id="settingsPage" class="extra-bottom-margin full-height"
             style="display: none; background-color: var(--gray-10);">
-            <button style="width: 100%" onclick="settings()">Return</button>
-            <input id="countdown" style="width: 100%; text-align: center; font-weight: bold;" value="5" placeholder="Countdown"
+            <button onclick="settings()">Return</button>
+            <input id="countdown" style="text-align: center; font-weight: bold;" value="5" placeholder="Countdown"
                 min="0" type="number" />
             <button id="originalSound" class="toggle" onclick="toggleOriginalSound()"
-                style="width: 100%; color: Black; background-color: White;">Original Sound</button>
+                style="color: Black; background-color: White;">Original Sound</button>
             <button id="volumeCorrection" class="toggle" onclick="toggleVolumeCorrection()" style="width: 100%;">Volume
                 Correction</button>
-            <button style="width: 100%;" onclick="window.location.reload()" style="">Reload after updating the "Original Sound" or "Volume
+            <button style="width: 100%;" onclick="window.location.reload()">Reload after updating the "Original Sound" or "Volume
                 Correction" options.</button>
         </div>
     </body>
