@@ -19,15 +19,15 @@
 
             @keyframes recording {
                 0% {
-                    background-color: var(--gray-10);
+                    background-color: hsl(0, 0%, 10%);
                 }
 
                 50% {
-                    background-color: var(--red-80);
+                    background-color: hsl(0, 90%, 90%);
                 }
 
                 100% {
-                    background-color: var(--gray-10);
+                    background-color: hsl(0, 0%, 10%);
                 }
             }
 
@@ -41,7 +41,7 @@
             }
 
             div * {
-                background-color: var(--gray-20);
+                background-color: hsl(0, 0%, 20%);
             }
 
             body {
@@ -62,30 +62,28 @@
     </head>
 
     <body>
-        <div class="extra-bottom-margin" id="recordingPage" style="background-color: transparent; padding: 0;">
-            <video muted id="video" style="background-color: var(--gray-10); max-width: calc(100% - 2vmin);" muted autoplay>
+        <div class="extra-bottom-margin" id="recordingPage">
+            <video muted id="video" muted autoplay>
                 <source id="source" src="">
             </video>
-            <div id="toolbar" class="extra-bottom-margin"
-                style="padding: 0; background-color: var(--gray-10); flex-flow: row wrap;">
+            <div id="toolbar">
                 <button id="start">Start</button>
                 <button id="stop" disabled>Stop</button>
                 <button onclick="settings()" id="settings">Settings</button>
                 <a id="download" download="audition.webm" style="display: none; text-align: center;">Download</a>
                 <button id="delete" onclick="deleteVideo()" style="display: none; text-align: center;">Delete</button>
             </div>
-            <div id="takes" style="padding: 0; background-color: var(--gray-10); flex-flow: row wrap;"></div>
+            <div id="takes"></div>
         </div>
-        <div id="settingsPage" class="extra-bottom-margin full-height"
-            style="display: none; background-color: var(--gray-10);">
+        <div id="settingsPage"
+            style="display: none;">
             <button onclick="settings()">Return</button>
             <input id="countdown" style="text-align: center; font-weight: bold;" value="5" placeholder="Countdown"
                 min="0" type="number" />
-            <button id="originalSound" class="toggle" onclick="toggleOriginalSound()"
-                style="color: Black; background-color: White;">Original Sound</button>
-            <button id="volumeCorrection" class="toggle" onclick="toggleVolumeCorrection()" style="width: 100%;">Volume
+            <button id="originalSound" class="toggle" onclick="toggleOriginalSound()">Original Sound</button>
+            <button id="volumeCorrection" class="toggle" onclick="toggleVolumeCorrection()">Volume
                 Correction</button>
-            <button style="width: 100%;" onclick="window.location.reload()">Reload after updating the "Original Sound" or "Volume
+            <button onclick="window.location.reload()">Reload after updating the "Original Sound" or "Volume
                 Correction" options.</button>
         </div>
     </body>
