@@ -7,13 +7,11 @@
         <title>Hot Take</title>
         <style>
             button {
-                font-weight: bold;
                 align-items: initial;
             }
 
             a {
                 cursor: pointer;
-                font-weight: bold;
                 text-decoration: none;
             }
 
@@ -57,8 +55,20 @@
                 flex-flow: row wrap;
             }
 
+            #toolbar {
+                flex: 0 0 auto;
+            }
+
             #download, #delete {
                 display: none; text-align: center;
+            }
+
+            #recordingPage {
+                flex-flow: column nowrap;
+            }
+
+            #video {
+                flex: 1 1 auto;
             }
         </style>
         <link rel="stylesheet" href="https://caretparrot.github.io/My-Libraries/dark.css">
@@ -70,7 +80,7 @@
     </head>
 
     <body>
-        <div class="extra-bottom-margin" id="recordingPage">
+        <div id="recordingPage">
             <video muted id="video" muted autoplay>
                 <source id="source" src="">
             </video>
