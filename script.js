@@ -5,6 +5,10 @@ let longPress = false;
 let longPressTimeout;
 let countdownTimeout;
 
+const options = {
+    mimeType: "video/mp4"
+}
+
 setupTree();
 
 if (localStorage.getItem("gainControl") === null) {
@@ -60,7 +64,8 @@ window.onload = function () {
             idTree.video.muted = true;
             idTree.video.controls = false;
             idTree.delete.style.display = "none";
-            mediaRecorder = new MediaRecorder(stream);
+
+            mediaRecorder = new MediaRecorder(stream, options);
 
             if (idTree.countdown.value > 0) {
                 idTree.start.innerHTML = idTree.countdown.value;
