@@ -1,0 +1,51 @@
+a {
+    cursor: pointer;
+    text-decoration: none;
+}
+
+@keyframes recording {
+    0% {
+        background-color: hsl(0, 0%, 10%);
+    }
+
+    50% {
+        background-color: hsl(0, 90%, 90%);
+    }
+
+    100% {
+        background-color: hsl(0, 0%, 10%);
+    }
+}
+
+.toggle:active {
+    background-color: initial;
+    color: initial;
+}
+
+div {
+    flex-flow: column wrap;
+}
+
+body {
+    display: flex;
+    flex-flow: row wrap;
+    width: 100%;
+    height: 100%;
+}
+
+* {
+    text-align: center;
+    justify-content: center;
+}
+
+#toolbar, #takes, #settingsPage {
+    flex-flow: row wrap;
+}
+
+#download, #delete {
+    display: none; text-align: center;
+}
+
+#recordingPage {
+    flex-flow: column nowrap;
+}
