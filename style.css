@@ -1,4 +1,4 @@
-a {
+button, a {
     cursor: pointer;
     text-decoration: none;
 }
@@ -22,13 +22,9 @@ a {
     color: initial;
 }
 
-div {
-    flex-flow: column wrap;
-}
-
 body {
-    display: flex;
-    flex-flow: row wrap;
+    display: fle !important;
+    flex-flow: column wrap;
 }
 
 * {
@@ -36,15 +32,10 @@ body {
     justify-content: center;
 }
 
-#toolbar, #takes, #settingsPage {
-    flex-flow: row wrap;
-}
-
-#download, #delete {
-    display: none; text-align: center;
-}
-
 #recordingPage {
-    background-color: transparent;
-    flex-flow: column nowrap;
+    flex-flow: column wrap;
+}
+
+#toolbar {
+    flex-flow: row wrap;
 }
