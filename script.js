@@ -36,7 +36,7 @@ if (localStorage.getItem("originalSound") === "true") {
     document.getElementById("originalSound").style.color = "White";
 }
 
-id("countdown").value = localStorage.getItem("countdown");
+document.getElementById("countdown").value = localStorage.getItem("countdown");
 
 window.onload = function () {
     let mediaRecorder;
@@ -121,7 +121,7 @@ function playbackTake(take) {
 
 function deleteVideo() {
     takeList.splice(currentVideo - 1, 1);
-    id(currentVideo).remove();
+    document.getElementById(currentVideo).remove();
     document.getElementById("source").src = undefined;
     document.getElementById("video").muted = true;
     document.getElementById("video").controls = false;
