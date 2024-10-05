@@ -4,6 +4,12 @@ button, a {
     font-weight: initial !important;
 }
 
+label {
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+
 @keyframes recording {
     0% {
         background-color: hsl(0, 0%, 10%);
@@ -26,6 +32,10 @@ button, a {
 body {
     display: flex !important;
     flex-flow: column wrap;
+}
+
+body * {
+    display: flex;
 }
 
 * {
