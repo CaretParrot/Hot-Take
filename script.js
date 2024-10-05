@@ -1,5 +1,5 @@
 let counter = 1;
-let takeList = [];
+let takeList = {};
 let currentVideo;
 let longPress = false;
 let longPressTimeout;
@@ -8,6 +8,7 @@ let countdownTimeout;
 const options = {
     mimeType: "video/mp4"
 }
+
 if (localStorage.getItem("gainControl") === null) {
     localStorage.setItem("gainControl", "true");
 }
@@ -97,7 +98,7 @@ window.onload = function () {
                 document.getElementById("start").innerHTML = "Start";
 
                 let url = URL.createObjectURL(event.data);
-                takeList.push(url);
+                takeList[counter] = url;
 
                 document.getElementById("takes").innerHTML += `<button id="${counter}" class="element" onmouseup="cancelLongPress()" onmousedown="startLongPress()" ontouchstart="startLongPress()" ontouchend="cancelLongPress()" onclick="playbackTake(${counter})">#${counter}</button>`;
                 counter++;
@@ -109,12 +110,12 @@ window.onload = function () {
     });
 }
 
-function playbackTake(take) {
+function playbackTake(takeNumber) {
     document.getElementById("video").srcObject = undefined;
-    document.getElementById("source").src = takeList[take - 1];
+    document.getElementById("source").src = takeList.takeNumber;
     document.getElementById("video").muted = false;
     document.getElementById("video").controls = true;
-    document.getElementById("download").href = takeList[take - 1];
+    document.getElementById("download").href = takeList.takeNumber;
     document.getElementById("delete").style.display = "flex";
     currentVideo = (take).toString();
 }
