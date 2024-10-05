@@ -1,6 +1,7 @@
 button, a {
     cursor: pointer;
     text-decoration: none;
+    font-weight: initial !important;
 }
 
 @keyframes recording {
@@ -23,7 +24,7 @@ button, a {
 }
 
 body {
-    display: fle !important;
+    display: flex !important;
     flex-flow: column wrap;
 }
 

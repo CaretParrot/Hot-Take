@@ -117,7 +117,7 @@ function playbackTake(takeNumber) {
     document.getElementById("video").controls = true;
     document.getElementById("download").href = takeList.takeNumber;
     document.getElementById("delete").style.display = "flex";
-    currentVideo = (take).toString();
+    currentVideo = (takeNumber).toString();
 }
 
 function deleteVideo() {
