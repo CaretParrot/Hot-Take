@@ -8,9 +8,6 @@ let countdownTimeout;
 const options = {
     mimeType: "video/mp4"
 }
-
-setupTree();
-
 if (localStorage.getItem("gainControl") === null) {
     localStorage.setItem("gainControl", "true");
 }
@@ -24,19 +21,19 @@ if (localStorage.getItem("countdown") === null) {
 }
 
 if (localStorage.getItem("volumeCorrection") === "true") {
-    idTree.volumeCorrection.style.backgroundColor = "White";
-    idTree.volumeCorrection.style.color = "Black";
+    document.getElementById("volumeCorrection").style.backgroundColor = "White";
+    document.getElementById("volumeCorrection").style.color = "Black";
 } else {
-    idTree.volumeCorrection.style.backgroundColor = "hsl(0, 0%, 20%)";
-    idTree.volumeCorrection.style.color = "White";
+    document.getElementById("volumeCorrection").style.backgroundColor = "hsl(0, 0%, 20%)";
+    document.getElementById("volumeCorrection").style.color = "White";
 }
 
 if (localStorage.getItem("originalSound") === "true") {
-    idTree.originalSound.style.backgroundColor = "White";
-    idTree.originalSound.style.color = "Black";
+    document.getElementById("originalSound").style.backgroundColor = "White";
+    document.getElementById("originalSound").style.color = "Black";
 } else {
-    idTree.originalSound.style.backgroundColor = "hsl(0, 0%, 20%)";
-    idTree.originalSound.style.color = "White";
+    document.getElementById("originalSound").style.backgroundColor = "hsl(0, 0%, 20%)";
+    document.getElementById("originalSound").style.color = "White";
 }
 
 id("countdown").value = localStorage.getItem("countdown");
@@ -54,27 +51,27 @@ window.onload = function () {
         }
 
     }).then(stream => {
-        idTree.video.srcObject = stream;
+        document.getElementById("video").srcObject = stream;
 
-        idTree.start.onclick = function () {
+        document.getElementById("start").onclick = function () {
             currentVideo = undefined;
-            idTree.download.href = undefined;
-            idTree.video.srcObject = stream;
-            idTree.source.src = undefined;
-            idTree.video.muted = true;
-            idTree.video.controls = false;
-            idTree.delete.style.display = "none";
+            document.getElementById("download").href = undefined;
+            document.getElementById("video").srcObject = stream;
+            document.getElementById("source").src = undefined;
+            document.getElementById("video").muted = true;
+            document.getElementById("video").controls = false;
+            document.getElementById("delete").style.display = "none";
 
             mediaRecorder = new MediaRecorder(stream, options);
 
-            if (idTree.countdown.value > 0) {
-                idTree.start.innerHTML = idTree.countdown.value;
+            if (document.getElementById("countdown").value > 0) {
+                document.getElementById("start").innerHTML = document.getElementById("countdown").value;
 
                 let counter = setInterval(function () {
-                    idTree.start.innerHTML--;
+                    document.getElementById("start").innerHTML--;
 
-                    if (idTree.start.innerHTML < 1) {
-                        idTree.start.innerHTML = "Start";
+                    if (document.getElementById("start").innerHTML < 1) {
+                        document.getElementById("start").innerHTML = "Start";
                         clearInterval(counter);
                     }
                 }, 1000);
@@ -83,54 +80,54 @@ window.onload = function () {
             countdownTimeout = setTimeout(function () {
                 mediaRecorder.start();
 
-                idTree.video.style.animationName = "recording";
-                idTree.video.style.animationDuration = "3s";
-                idTree.video.style.animationIterationCount = "infinite";
+                document.getElementById("video").style.animationName = "recording";
+                document.getElementById("video").style.animationDuration = "3s";
+                document.getElementById("video").style.animationIterationCount = "infinite";
 
-                idTree.start.disabled = true;
-                idTree.stop.disabled = false;
-            }, idTree.countdown.value * 1000);
+                document.getElementById("start").disabled = true;
+                document.getElementById("stop").disabled = false;
+            }, document.getElementById("countdown").value * 1000);
         }
 
-        idTree.stop.onclick = function () {
+        document.getElementById("stop").onclick = function () {
             mediaRecorder.stop();
 
             mediaRecorder.ondataavailable = function (event) {
-                idTree.video.style.animationName = "none";
-                idTree.start.innerHTML = "Start";
+                document.getElementById("video").style.animationName = "none";
+                document.getElementById("start").innerHTML = "Start";
 
                 let url = URL.createObjectURL(event.data);
                 takeList.push(url);
 
-                idTree.takes.innerHTML += `<button id="${counter}" class="element" onmouseup="cancelLongPress()" onmousedown="startLongPress()" ontouchstart="startLongPress()" ontouchend="cancelLongPress()" onclick="playbackTake(${counter})">#${counter}</button>`;
+                document.getElementById("takes").innerHTML += `<button id="${counter}" class="element" onmouseup="cancelLongPress()" onmousedown="startLongPress()" ontouchstart="startLongPress()" ontouchend="cancelLongPress()" onclick="playbackTake(${counter})">#${counter}</button>`;
                 counter++;
 
-                idTree.start.disabled = false;
-                idTree.stop.disabled = true;
+                document.getElementById("start").disabled = false;
+                document.getElementById("stop").disabled = true;
             }
         }
     });
 }
 
 function playbackTake(take) {
-    idTree.video.srcObject = undefined;
-    idTree.source.src = takeList[take - 1];
-    idTree.video.muted = false;
-    idTree.video.controls = true;
-    idTree.download.href = takeList[take - 1];
-    idTree.delete.style.display = "flex";
+    document.getElementById("video").srcObject = undefined;
+    document.getElementById("source").src = takeList[take - 1];
+    document.getElementById("video").muted = false;
+    document.getElementById("video").controls = true;
+    document.getElementById("download").href = takeList[take - 1];
+    document.getElementById("delete").style.display = "flex";
     currentVideo = (take).toString();
 }
 
 function deleteVideo() {
     takeList.splice(currentVideo - 1, 1);
     id(currentVideo).remove();
-    idTree.source.src = undefined;
-    idTree.video.muted = true;
-    idTree.video.controls = false;
+    document.getElementById("source").src = undefined;
+    document.getElementById("video").muted = true;
+    document.getElementById("video").controls = false;
 
     if (takeList.length === 0) {
-        idTree.delete.style.display = "none";
+        document.getElementById("delete").style.display = "none";
     }
 }
 
@@ -138,7 +135,7 @@ function startLongPress() {
     longPress = true;
     longPressTimeout = setTimeout(function () {
         if (longPress && currentVideo !== undefined) {
-            idTree.download.click();
+            document.getElementById("download").click();
         } else if (currentVideo == undefined) {
             alert("Please select a video before downloading.");
         }
@@ -151,39 +148,39 @@ function cancelLongPress() {
 }
 
 function settings() {
-    if (idTree.settingsPage.style.display === "none") {
-        idTree.settingsPage.style.display = "flex";
-        idTree.recordingPage.style.display = "none";
+    if (document.getElementById("settingsPage").style.display === "none") {
+        document.getElementById("settingsPage").style.display = "flex";
+        document.getElementById("recordingPage").style.display = "none";
     } else {
-        idTree.settingsPage.style.display = "none";
-        idTree.recordingPage.style.display = "flex";
+        document.getElementById("settingsPage").style.display = "none";
+        document.getElementById("recordingPage").style.display = "flex";
     }
 }
 
 function toggleOriginalSound() {
     if (localStorage.getItem("originalSound") === "true") {
-        idTree.originalSound.style.backgroundColor = "hsl(0, 0%, 20%)";
-        idTree.originalSound.style.color = "White";
+        document.getElementById("originalSound").style.backgroundColor = "hsl(0, 0%, 20%)";
+        document.getElementById("originalSound").style.color = "White";
         localStorage.setItem("originalSound", "false");
     } else {
-        idTree.originalSound.style.backgroundColor = "White";
-        idTree.originalSound.style.color = "Black";
+        document.getElementById("originalSound").style.backgroundColor = "White";
+        document.getElementById("originalSound").style.color = "Black";
         localStorage.setItem("originalSound", "true");
     }
 }
 
 function toggleVolumeCorrection() {
     if (localStorage.getItem("volumeCorrection") === "true") {
-        idTree.volumeCorrection.style.backgroundColor = "hsl(0, 0%, 20%)";
-        idTree.volumeCorrection.style.color = "White";
+        document.getElementById("volumeCorrection").style.backgroundColor = "hsl(0, 0%, 20%)";
+        document.getElementById("volumeCorrection").style.color = "White";
         localStorage.setItem("volumeCorrection", "false");
     } else {
-        idTree.volumeCorrection.style.backgroundColor = "White";
-        idTree.volumeCorrection.style.color = "Black";
+        document.getElementById("volumeCorrection").style.backgroundColor = "White";
+        document.getElementById("volumeCorrection").style.color = "Black";
         localStorage.setItem("volumeCorrection", "true");
     }
 }
 
 oninput = function (event) {
-    localStorage.setItem("countdown", idTree.countdown.value);
+    localStorage.setItem("countdown", document.getElementById("countdown").value);
 }
