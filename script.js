@@ -120,7 +120,7 @@ function playbackTake(takeNumber) {
 }
 
 function deleteVideo() {
-    takeList.splice(currentVideo, currentVideo);
+    delete takeList.currenVideo;
     document.getElementById(currentVideo).remove();
     document.getElementById("source").src = undefined;
     document.getElementById("video").muted = true;
