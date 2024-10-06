@@ -1,8 +1,6 @@
 let counter = 1;
 let takeList = {};
 let currentVideo;
-let longPress = false;
-let longPressTimeout;
 let countdownTimeout;
 
 const options = {
@@ -99,8 +97,9 @@ window.onload = function () {
 
                 let url = URL.createObjectURL(event.data);
                 takeList[counter] = url;
+                console.log(url);
 
-                document.getElementById("takes").innerHTML += `<button id="${counter}" class="element" onmouseup="cancelLongPress()" onmousedown="startLongPress()" ontouchstart="startLongPress()" ontouchend="cancelLongPress()" onclick="playbackTake(${counter})">#${counter}</button>`;
+                document.getElementById("takes").innerHTML += `<button id="${counter}" class="element" onclick="playbackTake(${counter})">#${counter}</button>`;
                 counter++;
 
                 document.getElementById("start").disabled = false;
@@ -112,10 +111,10 @@ window.onload = function () {
 
 function playbackTake(takeNumber) {
     document.getElementById("video").srcObject = undefined;
-    document.getElementById("source").src = takeList.takeNumber;
+    document.getElementById("source").src = takeList[takeNumber];
     document.getElementById("video").muted = false;
     document.getElementById("video").controls = true;
-    document.getElementById("download").href = takeList.takeNumber;
+    document.getElementById("download").href = takeList[takeNumber];
     document.getElementById("delete").style.display = "flex";
     currentVideo = (takeNumber).toString();
 }
@@ -131,23 +130,6 @@ function deleteVideo() {
         document.getElementById("delete").style.display = "none";
     }
 }
-
-function startLongPress() {
-    longPress = true;
-    longPressTimeout = setTimeout(function () {
-        if (longPress && currentVideo !== undefined) {
-            document.getElementById("download").click();
-        } else if (currentVideo == undefined) {
-            alert("Please select a video before downloading.");
-        }
-    }, 1000);
-}
-
-function cancelLongPress() {
-    longPress = false;
-    clearInterval(longPressTimeout);
-}
-
 function settings() {
     if (document.getElementById("settingsPage").style.display === "none") {
         document.getElementById("settingsPage").style.display = "flex";
