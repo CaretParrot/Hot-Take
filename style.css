@@ -44,9 +44,28 @@ body * {
 }
 
 #recordingPage {
-    flex-flow: column wrap;
+    background-color: transparent;
+    flex-flow: row wrap;
 }
 
 #toolbar {
-    flex-flow: row wrap;
+    flex-flow: column wrap;
+    flex: 1 0 auto;
+    background-color: transparent;
+}
+
+#takes {
+    background-color: transparent;
+    flex-flow: column wrap;
+    padding: 0;
+    margin: 0;
+}
+
+#settingsPage {
+    display: none;
+    background-color: transparent;
+}
+
+video {
+    flex: 0 1 auto;
 }

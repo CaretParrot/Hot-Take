@@ -23,7 +23,7 @@ if (localStorage.getItem("volumeCorrection") === "true") {
     document.getElementById("volumeCorrection").style.backgroundColor = "White";
     document.getElementById("volumeCorrection").style.color = "Black";
 } else {
-    document.getElementById("volumeCorrection").style.backgroundColor = "hsl(0, 0%, 20%)";
+    document.getElementById("volumeCorrection").style.backgroundColor = "hsl(240, 20%, 20%)";
     document.getElementById("volumeCorrection").style.color = "White";
 }
 
@@ -31,7 +31,7 @@ if (localStorage.getItem("originalSound") === "true") {
     document.getElementById("originalSound").style.backgroundColor = "White";
     document.getElementById("originalSound").style.color = "Black";
 } else {
-    document.getElementById("originalSound").style.backgroundColor = "hsl(0, 0%, 20%)";
+    document.getElementById("volumeCorrection").style.backgroundColor = "hsl(240, 20%, 20%)";
     document.getElementById("originalSound").style.color = "White";
 }
 
