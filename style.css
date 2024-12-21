@@ -4,7 +4,7 @@ button, a {
     font-weight: initial !important;
 }
 
-label {
+label, a {
     justify-content: center;
     align-content: center;
     align-items: center;
@@ -34,7 +34,7 @@ body {
     flex-flow: column wrap;
 }
 
-body * {
+body * :not(script) {
     display: flex;
 }
 
@@ -50,7 +50,6 @@ body * {
 
 #toolbar {
     flex-flow: column wrap;
-    flex: 1 0 auto;
     background-color: transparent;
 }
 
@@ -67,5 +66,5 @@ body * {
 }
 
 video {
-    flex: 0 1 auto;
+    width: 50%;
 }
