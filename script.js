@@ -20,19 +20,15 @@ if (localStorage.getItem("countdown") === null) {
 }
 
 if (localStorage.getItem("volumeCorrection") === "true") {
-    document.getElementById("volumeCorrection").style.backgroundColor = "White";
-    document.getElementById("volumeCorrection").style.color = "Black";
+    document.getElementById("volumeCorrection").classList.add("active");
 } else {
-    document.getElementById("volumeCorrection").style.backgroundColor = "hsl(240, 20%, 20%)";
-    document.getElementById("volumeCorrection").style.color = "White";
+    document.getElementById("volumeCorrection").classList.remove("active");
 }
 
 if (localStorage.getItem("originalSound") === "true") {
-    document.getElementById("originalSound").style.backgroundColor = "White";
-    document.getElementById("originalSound").style.color = "Black";
+    document.getElementById("originalSound").classList.add("active");
 } else {
-    document.getElementById("volumeCorrection").style.backgroundColor = "hsl(240, 20%, 20%)";
-    document.getElementById("originalSound").style.color = "White";
+    document.getElementById("volumeCorrection").classList.remove("active");
 }
 
 document.getElementById("countdown").value = localStorage.getItem("countdown");
@@ -131,35 +127,33 @@ function deleteVideo() {
     }
 }
 function settings() {
-    if (document.getElementById("settingsPage").style.display === "none") {
-        document.getElementById("settingsPage").style.display = "flex";
+    if (document.getElementById("recordingPage").style.display === "grid") {
+        document.getElementById("settingsPage").style.display = "grid";
         document.getElementById("recordingPage").style.display = "none";
+        document.getElementById("toolbar").style.display = "none";
     } else {
         document.getElementById("settingsPage").style.display = "none";
-        document.getElementById("recordingPage").style.display = "flex";
+        document.getElementById("recordingPage").style.display = "grid";
+        document.getElementById("toolbar").style.display = "grid";
     }
 }
 
 function toggleOriginalSound() {
     if (localStorage.getItem("originalSound") === "true") {
-        document.getElementById("originalSound").style.backgroundColor = "hsl(0, 0%, 20%)";
-        document.getElementById("originalSound").style.color = "White";
+        document.getElementById("originalSound").classList.add("active");
         localStorage.setItem("originalSound", "false");
     } else {
-        document.getElementById("originalSound").style.backgroundColor = "White";
-        document.getElementById("originalSound").style.color = "Black";
+        document.getElementById("originalSound").classList.remove("active");
         localStorage.setItem("originalSound", "true");
     }
 }
 
 function toggleVolumeCorrection() {
     if (localStorage.getItem("volumeCorrection") === "true") {
-        document.getElementById("volumeCorrection").style.backgroundColor = "hsl(0, 0%, 20%)";
-        document.getElementById("volumeCorrection").style.color = "White";
+        document.getElementById("volumeCorrection").classList.add("active");
         localStorage.setItem("volumeCorrection", "false");
     } else {
-        document.getElementById("volumeCorrection").style.backgroundColor = "White";
-        document.getElementById("volumeCorrection").style.color = "Black";
+        document.getElementById("volumeCorrection").classList.remove("active");
         localStorage.setItem("volumeCorrection", "true");
     }
 }
