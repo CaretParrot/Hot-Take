@@ -1,11 +1,11 @@
-a {
+a,
+input,
+button,
+label {
     align-items: center;
     font-weight: normal;
-}
-
-input, button, label {
-    align-items: center;
     justify-content: center;
+    align-content: center;
     text-align: center;
 }
 
@@ -26,6 +26,10 @@ input, button, label {
 .toggle:active {
     background-color: initial;
     color: initial;
+}
+
+.page {
+    background-color: transparent !important;
 }
 
 body {
