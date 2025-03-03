@@ -128,7 +128,7 @@ function deleteVideo() {
 }
 function settings() {
     if (document.getElementById("recordingPage").style.display === "grid") {
-        document.getElementById("settingsPage").style.display = "grid";
+        document.getElementById("settingsPage").style.display = "flex";
         document.getElementById("recordingPage").style.display = "none";
         document.getElementById("toolbar").style.display = "none";
     } else {
